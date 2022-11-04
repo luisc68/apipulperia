@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Products {
+model products {
   id          Int      @id @default(autoincrement())
   codigo_p   String   @unique
   nombre_p   String
@@ -21,44 +21,24 @@ model Products {
   cantidad_en_bodega_p     Int
   url_imagen_del_producto String
   description_p String
-  ventas      Ventas[]
-
-//con un if lo de las cantidades del producto si cantidad de smenor a 0 q salga productop agotadpo
+  ventas      ventas[]
 
 }
 
-model Ventas {
+model ventas {
   id          Int      @id @default(autoincrement())
   codigo_v   String   @unique
   nombre_product   String
   codigo_product String @unique
   cantidad_product String
   precio_product   String
-  fecha       DateTime? @updatedAt //colocar el campo como opcional "?"
+  fecha       DateTime? @updatedAt 
   total       String  
   descripcion_v String
   url_imagen_producto String
   metodo_de_pago String
-  prducto1 Products @relation(fields: [productoId], references: [id])
+  prducto1 products @relation(fields: [productoId], references: [id])
   productoId Int
-  //pulperia Pulperia[]
 
 }
-
-//Esta tabla la hice para que se pudiera mostrar simplemente la informacion de la pulperia, ya que solo es una pulperia
-//y no se necesita que se pueda crear mas de una pulperia, ya que estos datos van a ser unicos siemore
-//y tambien se creara un metodo update para que si algun momento el dueño decida cambiar algun dato o al
-// vendrdor como tal de la pulperia pueda hacerlo y se relaciona con la tabal de ventas para que esta pueda
-//mostrar los datos de la pulperia
-//model Pulperia {
-  //id         Int      @id @default(autoincrement())
-  //nombre_p   String
-  //direccion_p String
-  //telefono_p String
-  //vendedor_p String
-  //ventas Ventas @relation(fields: [ventasId], references: [id])
-  //ventasId Int @unique
-  //} 
-
-
 

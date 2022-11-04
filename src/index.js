@@ -24,7 +24,7 @@ app.post('/products', async (req, res) => {
             categoria_p: req.body.categoria_p,
             peso_p: req.body.peso_p,
             marca_p: req.body.marca_p,
-            cantidad_en_bodega_p: req.body.cantidad_en_bodega_p, //int colocalre int
+            cantidad_en_bodega_p: req.body.cantidad_en_bodega_p, 
             url_imagen_del_producto: req.body.url_imagen_del_producto,
             description_p: req.body.description_p,
         },
@@ -172,25 +172,7 @@ app.get("/ventas", async (req, res) => {
     });
 })
 
-//app.get("/ventas/:id", async function(req,res){
-    //const ventas = await prisma.job.findUnique({ where: { id: Number(req.params.id) }, include: { product:true } });
-    //res.json(ventas);
-//});
 
-
-//GET REvisar
-//app.get('/ventas/:id', async (req, res) => {
-    //const { id } = req.params;
-    //const ventas = await prisma.ventas.findUnique({
-        //where: {
-            //id: id,
-        //},
-        //include: {
-            //reference: true,
-        //},
-    //});
-    //res.json(product);
-//});
 
 
 
@@ -236,20 +218,6 @@ app.delete('/ventas/:codigo_product', async (req, res) => {
         res.status(404).json({ message: "Venta no encontrada, por favor ingrese el codigo correctamente" });
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
