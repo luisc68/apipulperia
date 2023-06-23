@@ -16,26 +16,17 @@ APi for pulperia App
 ### Installation
 
 bash
- use npm:
+
  npm install
-
- or
-
- use yarn:
  yarn intall
 
 
 ### Run
 
 bash
-use npm:
+
 npm run start ## start compiled source on dis/ folder
 npm run dev ## watch dev mode with nodemon
-
-or
-
-use yarn:
-
 yarn start ## start compiled source on dis/ folder
 yarn dev ## watch dev mode with nodemon
 
